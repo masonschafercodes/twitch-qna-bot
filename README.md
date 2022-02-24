@@ -5,21 +5,11 @@ A hot garbage twitch bot that has one command and one purpose... to add question
 ### Setup 
 
 1. Setup a env file ~ you can use the .env.example that I provided.
-   
-2. Get a twitch OAuth Key, I got mine here: [https://twitchtokengenerator.com](https://twitchtokengenerator.com)
-
-   1. **When it gives you the option, select Bot Chat Token**
-   2. **Authorize your chat bot Twitch Account**
-   3. **Verify your not a robot**
-   4. **copy the Access Token for the next step**
-
-3. Add OAuth key and bot name to the .env file - the bot name is going to be the same name as your channel you authorized and got the token for
 
 **Here is an example of the .env file**
 
 ```
 TWITCH_BOT_USERNAME="yourbotnamehere"
-TWITCH_OAUTH_TOKEN="youroauthtokenhere"
 ```
 
 ### Running the bot

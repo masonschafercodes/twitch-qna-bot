@@ -16,10 +16,6 @@ const client = new tmi.Client({
   connection: {
     reconnect: true,
   },
-  identity: {
-    username: process.env.TWITCH_BOT_USERNAME,
-    password: process.env.TWITCH_OAUTH_TOKEN,
-  },
   channels: [process.env.TWITCH_BOT_USERNAME],
 });
 
@@ -30,13 +26,9 @@ client.on("message", async (channel, tags, message, self) => {
 
   if (message.startsWith("!question")) {
     const argument = message.split("!question ")[1];
-    if (!argument) {
-        return client.say(channel, `@${tags.username} please provide a question after the command!`);
-    };
-    
+    if (!argument) return;
     try {
         const question = await fs.appendFileSync("./questions/questions.txt", `${tags.username} - ${argument}\n`);
-        client.say(channel, commands.question.response(argument));
     } catch (error) {
         console.log(error);
     }
